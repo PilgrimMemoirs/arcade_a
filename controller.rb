@@ -2,6 +2,21 @@ require 'sinatra'
 require_relative 'models/rps.rb'
 
 get '/' do
-	game1 = Game.new("Alden","Andrew")
 	erb :index
+end
+
+
+post '/' do
+	p1 = Player.new(params[:name])
+	p2 = Player.new(params[:name2])
+	game = Game.new(p1, p2)
+
+	p1.response = params[:p1_choice]
+	p2.response = params[:p2_choice]
+
+	game.results
+
+	@results = game.scoreboard
+
+	erb :results
 end

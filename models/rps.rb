@@ -2,24 +2,17 @@ class Player
 
 attr_accessor :name, :response, :wins
 
-
 	def initialize(name)
 	 @name = name
 	 @wins = 0
 	end
-
-	def choice
-		@response 
-	end
-
 end
 
 
 class Game
-
-	def initialize (player1_name, player2_name)
-		@player1 = Player.new(player1_name)
-		@player2 = Player.new(player2_name)
+	def initialize (player1, player2)
+		@player1 = player1
+		@player2 = player2
 	end
 
 	def results 
@@ -49,13 +42,10 @@ class Game
 			puts "player 2 wins"
 			@player2.wins += 1
 		end
-	
-
 	end
 
 	def scoreboard
-		puts "#{@player1.name} = #{@player1.wins} "
-		puts "#{@player2.name} = #{@player2.wins} "
+		"#{@player1.name} = #{@player1.wins}, #{@player2.name} = #{@player2.wins} "
 	end
 
 end
