@@ -1,61 +1,54 @@
+#get player's names and choices through a form
+#Call choice, results and scoreboard manually
+
 class Player
 
-attr_accessor :name, :response, :wins
-
-
+attr_accessor :name, :choice, :wins
 	def initialize(name)
 	 @name = name
 	 @wins = 0
 	end
-
-	def choice
-		@response 
-	end
-
 end
 
 
 class Game
 
-	def initialize (player1_name, player2_name)
-		@player1 = Player.new(player1_name)
-		@player2 = Player.new(player2_name)
+	def initialize (player1, player2)
+		@player1 = player1
+		@player2 = player2
 	end
 
 	def results 
-		if @player1.response =="rock" && @player2.response=="rock"
+		if @player1.choice =="rock" && @player2.choice=="rock"
 			puts "Tie."
-		elsif @player1.response=="scissors" && player2.response=="scissors"
+		elsif @player1.choice=="scissors" && player2.choice=="scissors"
 			puts "Tie."
-		elsif @player1.response=="paper" && @player2.response=="paper"
+		elsif @player1.choice=="paper" && @player2.choice=="paper"
 			puts "Tie."
 		
-		elsif  @player1.response=="rock" && @player2.response =="scissors"
+		elsif  @player1.choice=="rock" && @player2.choice =="scissors"
 			puts "#player 1 wins"
 			@player1.wins += 1
-		elsif @player1.response=="scissors" && @player2.response =="paper"
+		elsif @player1.choice=="scissors" && @player2.choice =="paper"
 			puts "player 1 wins"
 			@player1.wins += 1
-		elsif @player1.response=="paper" && @player2.response=="rock"
+		elsif @player1.choice=="paper" && @player2.choice=="rock"
 			puts "player 1 wins"
 			@player1.wins += 1
-		elsif @player2.response=="rock" && @player1.response=="scissors"
+		elsif @player2.choice=="rock" && @player1.choice=="scissors"
 			puts "player 2 wins"
 			@player2.wins += 1
-		elsif @player2.response=="scissors" && @player1.response=="paper"
+		elsif @player2.choice=="scissors" && @player1.choice=="paper"
 			puts "player 2 wins"
 			@player2.wins += 1
-		elsif @player2.response=="paper" && @player1.response=="rock"
+		elsif @player2.choice=="paper" && @player1.choice=="rock"
 			puts "player 2 wins"
 			@player2.wins += 1
 		end
-	
-
 	end
 
 	def scoreboard
-		puts "#{@player1.name} = #{@player1.wins} "
-		puts "#{@player2.name} = #{@player2.wins} "
+		" SCORE: #{@player1.name} = #{@player1.wins}, #{@player2.name} = #{@player2.wins} "
 	end
 
 end
