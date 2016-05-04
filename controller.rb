@@ -6,12 +6,15 @@ get '/' do
 	erb :index
 end
 
-get '/something' do 
-	"woop"
+
+post '/p1' do
+	@plyr1_name = params[:plyr1_name]
+	@plyr2_choice = params[:plyr1_choice]
+	erb :p2
 end
 
 
-post '/' do
+post '/results' do
 	plyr1 = Player.new(params[:plyr1_name])
 	plyr2 = Player.new(params[:plyr2_name])
 	game = Game.new(plyr1, plyr2)
@@ -22,5 +25,5 @@ post '/' do
 	game.results
 	@scores = game.scoreboard
 
-		erb :results
+	erb :results
 end
